@@ -43,9 +43,9 @@ class SQLDataset(data.Dataset):
 
         gt_path = f"{item}.png"
         lq_path = f"{item}_x2.png"
-        img_gt = Image.open(io.BytesIO(lr)).convert('RGB')
-        img_lq = Image.open(io.BytesIO(hr)).convert('RGB')
+        img_gt = Image.open(io.BytesIO(hr)).convert('RGB')
+        img_lq = Image.open(io.BytesIO(lr)).convert('RGB')
 
-        img_gt, img_lq = TF.to_tensor(lr), TF.to_tensor(hr)
+        img_gt, img_lq = TF.to_tensor(img_gt), TF.to_tensor(img_lq)
 
         return {'lq': img_lq, 'gt': img_gt, 'lq_path': lq_path, 'gt_path': gt_path}
