@@ -14,13 +14,13 @@ class SQLDataset(data.Dataset):
 
         self.opt = opt
         
-        db_file = opt['db_file']
-        db_table = 'images'
-        lr_col = 'lr_img'
-        hr_col = 'hr_img'
+        self.db_file = opt['db_file']
+        self.db_table = 'images'
+        self.lr_col = 'lr_img'
+        self.hr_col = 'hr_img'
         
-        hflip = True
-        rotate = True
+        self.hflip = True
+        self.rotate = True
 
         self.total_images = self.get_num_rows()
 
